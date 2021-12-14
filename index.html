@@ -13,11 +13,17 @@
     <h1>LinguaLibreChecker</h1>
 </header>
 <main>
-    <button class="btn btn-primary" id="btnOpen"> Lecture</button>
+    <button class="btn btn-primary" id="btnOpen" onclick="btnOpen(data)"> Lecture</button>
     <div id="modal" class="modal">
         <div class="modal-container">
             <span class="close">&times;</span>
-            <div>
+            <h2>MOT</h2>
+
+            <audio controls>
+                <source src="source.mp3" type="audio/mpeg">
+            </audio>
+
+            <div class="tag">
                 <button type="button" class="btn btn-light">#no sound</button>
                 <button type="button" class="btn btn-light">#parasite</button>
                 <button type="button" class="btn btn-light">#cut word</button>
@@ -25,7 +31,6 @@
                 <button type="button" class="btn btn-light">#spelling</button>
                 <button type="button" class="btn btn-light">#no match language</button>
                 <button type="button" class="btn btn-light">#vandalism</button>
-
             </div>
             <div>
                 <button class="btn btn-secondary">Retour</button>

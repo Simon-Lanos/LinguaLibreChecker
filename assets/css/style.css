@@ -1,4 +1,5 @@
 .modal {
+    text-align: center;
     background-color: rgba(0, 0, 0, 0.4);
     left: 0;
     top: 0;
@@ -6,14 +7,22 @@
     height: 100%;
 }
 
+.modal-container h2{
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+.tag{
+    text-align: left;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
 .modal-container {
-
     justify-content: center;
     background-color: #fefefe;
     margin: auto;
     padding: 20px;
     border: 1px solid #888;
-    width: 60%;
+    width: 45%;
     position: relative;
 }
 
