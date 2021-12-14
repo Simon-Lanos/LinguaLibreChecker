@@ -10,7 +10,7 @@
 </head>
 <body>
 <header>
-    <h1>Hello !</h1>
+    <h1>LinguaLibreChecker</h1>
 </header>
 <main>
     <button class="btn btn-primary" id="btnOpen"> Lecture</button>
@@ -34,9 +34,15 @@
         </div>
     </div>
 </main>
-<footer></footer>
+<footer class="d-flex justify-content-center">
+    <button class="btn btn-primary" type="button" onclick="download(dataToXml(data))">
+        <span>📝</span>Exporter
+    </button>
+</footer>
 <script type="text/javascript" src="./assets/js/bootstrap.bundle.min.js"></script>
 <script type="text/javascript" src="./assets/js/data.js"></script>
 <script type="text/javascript" src="./assets/js/dialog.js"></script>
+<script type="text/javascript" src="./assets/js/data-to-xml.js"></script>
+<script type="text/javascript" src="./assets/js/downloader.js"></script>
 </body>
 </html>
