@@ -12,11 +12,22 @@ const btnOpen = function () {
     const title = document.getElementById('title');
     title.textContent = data[count].word;
 
-    // data.forEach((file) => {
-    //     console.log(file.file)
-    //     const element = document.getElementById("test");
-    //     element.innerHTML = "<p>" + file.file + "</p>";
-    // });
+    const divTag = document.getElementById('tag');
+    divTag.innerHTML = ''
+
+    tags.forEach((tag) => {
+        const btnTag = document.createElement("button")
+        btnTag.type = 'button';
+        btnTag.innerHTML = '#' + tag.name;
+        btnTag.className = 'btn btn-light';
+
+        btnTag.onclick = function () {
+            console.log(tag.name)
+        };
+        const divTag = document.getElementById('tag');
+        divTag.appendChild(btnTag)
+        // console.log(tag.name)
+    });
 }
 
 const btnNext = function () {

@@ -18,30 +18,17 @@
         <div class="modal-container">
             <span class="close">&times;</span>
             <h2 id="title">MOT</h2>
-
             <audio id="audio" controls>
                 <source id="audioSource" src="./assets/audio/LL-Q150_(fra)-Adélaïde_Calais_WMFr-jeune.wav"
                         type="audio/wav">
             </audio>
-
-            <div class="tag">
-                <button type="button" class="btn btn-light">#no sound</button>
-                <button type="button" class="btn btn-light">#parasite</button>
-                <button type="button" class="btn btn-light">#cut word</button>
-                <button type="button" class="btn btn-light">#no match</button>
-                <button type="button" class="btn btn-light">#spelling</button>
-                <button type="button" class="btn btn-light">#no match language</button>
-                <button type="button" class="btn btn-light">#vandalism</button>
-            </div>
-
+            <div id="tag"></div>
             <div>
                 <button class="btn btn-secondary" onclick="btnBack()">Retour</button>
                 <button class="btn btn-success" onclick="btnNext()">Valid Next</button>
             </div>
         </div>
     </div>
-    <p id="showData"></p>
-    <div id="test"></div>
     <p id="showData"></p>
 </main>
 <footer class="d-flex justify-content-center">

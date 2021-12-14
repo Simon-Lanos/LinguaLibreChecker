@@ -57,7 +57,7 @@ const tags = [
         name: 'cut word'
     },
     {
-        name: '#no match spelling'
+        name: 'no match spelling'
     },
     {
         name: 'no match language'
