@@ -3,7 +3,8 @@
 <head>
     <title>LinguaLibreChecker</title>
     <meta charset="UTF-8"/>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✅</text></svg>">
+    <link rel="icon"
+          href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✅</text></svg>">
     <link rel="stylesheet" type="text/css" href="./assets/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
 </head>
@@ -16,10 +17,11 @@
     <div id="modal" class="modal">
         <div class="modal-container">
             <span class="close">&times;</span>
-            <h2>MOT</h2>
+            <h2 id="title">MOT</h2>
 
             <audio id="audio" controls>
-                <source id="audioSource" src="./assets/audio/LL-Q150_(fra)-Adélaïde_Calais_WMFr-jeune.wav" type="audio/wav">
+                <source id="audioSource" src="./assets/audio/LL-Q150_(fra)-Adélaïde_Calais_WMFr-jeune.wav"
+                        type="audio/wav">
             </audio>
 
             <div class="tag">
@@ -33,7 +35,7 @@
             </div>
 
             <div>
-                <button class="btn btn-secondary">Retour</button>
+                <button class="btn btn-secondary" onclick="btnBack()">Retour</button>
                 <button class="btn btn-success" onclick="btnNext()">Valid Next</button>
             </div>
         </div>

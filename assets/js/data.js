@@ -1,6 +1,7 @@
 const data = [
     {
         author: 'Adélaïde Calais',
+        word: 'jeune',
         date: '13 décembre 2021 à 08:16',
         duration: 1.1,
         size: 99,
@@ -9,6 +10,7 @@ const data = [
     },
     {
         author: 'Adélaïde Calais',
+        word: 'roc',
         date: '13 décembre 2021 à 08:16',
         duration: 1.0,
         size: 91,
@@ -17,6 +19,7 @@ const data = [
     },
     {
         author: 'Adélaïde Calais',
+        word: 'mal',
         date: '13 décembre 2021 à 08:16',
         duration: 1.3,
         size: 123,
@@ -25,6 +28,7 @@ const data = [
     },
     {
         author: 'Adélaïde Calais',
+        word: 'fou à lier',
         date: '13 décembre 2021 à 08:16',
         duration: 1.0,
         size: 91,
@@ -33,6 +37,7 @@ const data = [
     },
     {
         author: 'Adélaïde Calais',
+        word: 'rat',
         date: '13 décembre 2021 à 08:17',
         duration: 1.4,
         size: 131,
