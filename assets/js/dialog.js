@@ -1,24 +1,32 @@
 const modal = document.getElementById("modal");
-
-// const btnOpen = document.getElementById("btnOpen");
-
 const btnClose = document.getElementsByClassName("close")[0];
-
-const btnOpen = function (data) {
+let count = 0;
+const btnOpen = function () {
     modal.style.display = "flex";
     const audio = document.getElementById('audio');
     const source = document.getElementById('audioSource');
-    source.src = data[0].file
-    // audio.load(); //call this to just preload the audio without playing
-    // audio.play(); //call this to play the song right away
+    source.src = data[count].file
+    audio.load();
+    audio.play();
 
-    const count = Object.keys(data).length;
-    console.log(count);
+
     data.forEach((file) => {
         console.log(file.file)
         const element = document.getElementById("test");
         element.innerHTML = "<p>" + file.file + "</p>";
     });
+}
+
+const btnNext = function () {
+    count += 1;
+    console.log(count);
+    const countAudio = Object.keys(data).length;
+    console.log(countAudio);
+    if (count > countAudio) {
+        count = 0;
+    } else {
+        btnOpen(data)
+    }
 }
 
 btnClose.onclick = function () {
