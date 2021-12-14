@@ -7,15 +7,18 @@
     height: 100%;
 }
 
-.modal-container h2{
+.modal-container h2 {
     margin-top: 10px;
     margin-bottom: 30px;
+    text-transform: uppercase;
 }
-.tag{
+
+.tag {
     text-align: left;
     margin-top: 20px;
     margin-bottom: 20px;
 }
+
 .modal-container {
     justify-content: center;
     background-color: #fefefe;
