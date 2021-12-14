@@ -30,7 +30,16 @@ function CreateTableFromJSON() {
 
         for (var j = 0; j < col.length; j++) {
             var tabCell = tr.insertCell(-1);
-            tabCell.innerHTML = myData[i][col[j]];
+            
+            if (col[j] == "duration") {
+                tabCell.innerHTML = myData[i][col[j]] + 's.';
+            }
+            else if (col[j] == "size") {
+                tabCell.innerHTML = myData[i][col[j]] + 'KO';
+            }
+            else{
+                tabCell.innerHTML = myData[i][col[j]];
+            }
         }
     }
 
