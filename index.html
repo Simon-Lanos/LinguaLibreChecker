@@ -20,7 +20,7 @@
             <h2>MOT</h2>
 
             <audio controls>
-                <source src="source.mp3" type="audio/mpeg">
+                <source id="audioSource" src="#" type="audio/wav">
             </audio>
 
             <div class="tag">
@@ -32,12 +32,14 @@
                 <button type="button" class="btn btn-light">#no match language</button>
                 <button type="button" class="btn btn-light">#vandalism</button>
             </div>
+
             <div>
                 <button class="btn btn-secondary">Retour</button>
                 <button class="btn btn-success">Valid Next</button>
             </div>
         </div>
     </div>
+    <div id="test"></div>
 </main>
 <footer class="d-flex justify-content-center">
     <button class="btn btn-primary" type="button" onclick="download(dataToXml(data))">
