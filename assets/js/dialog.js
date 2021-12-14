@@ -9,20 +9,35 @@ const btnOpen = function () {
     audio.load();
     audio.play();
 
+    const title = document.getElementById('title');
+    title.textContent = data[count].word;
 
-    data.forEach((file) => {
-        console.log(file.file)
-        const element = document.getElementById("test");
-        element.innerHTML = "<p>" + file.file + "</p>";
-    });
+    // data.forEach((file) => {
+    //     console.log(file.file)
+    //     const element = document.getElementById("test");
+    //     element.innerHTML = "<p>" + file.file + "</p>";
+    // });
 }
 
 const btnNext = function () {
     count += 1;
-    console.log(count);
-    const countAudio = Object.keys(data).length;
-    console.log(countAudio);
+    const countAudio = Object.keys(data).length - 1;
+    console.log("count :" + count);
+    console.log("countAudio :" + countAudio);
     if (count > countAudio) {
+        count = 0;
+        btnOpen(data)
+    } else {
+        btnOpen(data)
+    }
+}
+
+const btnBack = function () {
+    count -= 1;
+    const countAudio = Object.keys(data).length;
+    console.log("count :" + count);
+    console.log("countAudio :" + countAudio);
+    if (count < 0) {
         count = 0;
     } else {
         btnOpen(data)
