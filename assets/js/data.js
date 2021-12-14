@@ -40,3 +40,24 @@ const data = [
         tags: [],
     },
 ];
+
+const tags = [
+    {
+        name: 'no sound'
+    },
+    {
+        name: 'parasite'
+    },
+    {
+        name: 'cut word'
+    },
+    {
+        name: '#no match spelling'
+    },
+    {
+        name: 'no match language'
+    },
+    {
+        name: 'vandalism'
+    },
+];
