@@ -12,14 +12,14 @@
     <h1>LinguaLibreChecker</h1>
 </header>
 <main>
-    <button class="btn btn-primary" id="btnOpen" onclick="btnOpen(data)"> Lecture</button>
+    <button class="btn btn-primary" id="btnOpen" onclick="btnOpen()"> Lecture</button>
     <div id="modal" class="modal">
         <div class="modal-container">
             <span class="close">&times;</span>
             <h2>MOT</h2>
 
-            <audio controls>
-                <source id="audioSource" src="#" type="audio/wav">
+            <audio id="audio" controls>
+                <source id="audioSource" src="./assets/audio/LL-Q150_(fra)-Adélaïde_Calais_WMFr-jeune.wav" type="audio/wav">
             </audio>
 
             <div class="tag">
@@ -34,10 +34,11 @@
 
             <div>
                 <button class="btn btn-secondary">Retour</button>
-                <button class="btn btn-success">Valid Next</button>
+                <button class="btn btn-success" onclick="btnNext()">Valid Next</button>
             </div>
         </div>
     </div>
+    <p id="showData"></p>
     <div id="test"></div>
     <p id="showData"></p>
 </main>
@@ -48,6 +49,7 @@
 </footer>
 <script type="text/javascript" src="./assets/js/bootstrap.bundle.min.js"></script>
 <script type="text/javascript" src="./assets/js/data.js"></script>
+<script type="text/javascript" src="assets/js/table.js"></script>
 <script type="text/javascript" src="./assets/js/dialog.js"></script>
 <script type="text/javascript" src="assets/js/table.js"></script>
 <script type="text/javascript" src="./assets/js/data-to-xml.js"></script>

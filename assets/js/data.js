@@ -20,7 +20,7 @@ const data = [
         date: '13 décembre 2021 à 08:16',
         duration: 1.3,
         size: 123,
-        file: './assets/audio/LL-Q150_(fra)-Adélaïde_Calais_WMFr-ras.wav',
+        file: './assets/audio/LL-Q150_(fra)-Adélaïde_Calais_WMFr-mal.wav',
         tags: [],
     },
     {
