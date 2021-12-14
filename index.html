@@ -3,18 +3,40 @@
 <head>
     <title>LinguaLibreChecker</title>
     <meta charset="UTF-8"/>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✅</text></svg>">
+    <link rel="icon"
+          href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✅</text></svg>">
     <link rel="stylesheet" type="text/css" href="./assets/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
 </head>
 <body>
-    <header>
-        <h1>Hello !</h1>
-    </header>
-    <main>
-        
-    </main>
-    <footer></footer>
-    <script type="text/javascript" src="./assets/js/bootstrap.bundle.min.js"></script>
-    <script type="text/javascript" src="./assets/js/data.js"></script>
+<header>
+    <h1>Hello !</h1>
+</header>
+<main>
+    <button class="btn btn-primary" id="btnOpen"> Lecture</button>
+    <div id="modal" class="modal">
+        <div class="modal-container">
+            <span class="close">&times;</span>
+            <div>
+                <button type="button" class="btn btn-light">#no sound</button>
+                <button type="button" class="btn btn-light">#parasite</button>
+                <button type="button" class="btn btn-light">#cut word</button>
+                <button type="button" class="btn btn-light">#no match</button>
+                <button type="button" class="btn btn-light">#spelling</button>
+                <button type="button" class="btn btn-light">#no match language</button>
+                <button type="button" class="btn btn-light">#vandalism</button>
+
+            </div>
+            <div>
+                <button class="btn btn-secondary">Retour</button>
+                <button class="btn btn-success">Valid Next</button>
+            </div>
+        </div>
+    </div>
+</main>
+<footer></footer>
+<script type="text/javascript" src="./assets/js/bootstrap.bundle.min.js"></script>
+<script type="text/javascript" src="./assets/js/data.js"></script>
+<script type="text/javascript" src="./assets/js/dialog.js"></script>
 </body>
 </html>
