@@ -36,6 +36,16 @@ const btnOpen = function () {
     title.textContent = data[count].word;
 }
 
+const btnOpenAt = function(num) {
+    modal.style.display = "flex";
+    const audio = document.getElementById('audio');
+    const source = document.getElementById('audioSource');
+    count = num;
+    source.src = data[num].file
+    audio.load();
+    audio.play();
+}
+
 const btnNext = function () {
     count += 1;
     const countAudio = Object.keys(data).length - 1;
