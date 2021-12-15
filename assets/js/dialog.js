@@ -15,6 +15,9 @@ const btnOpen = function (num) {
     source.src = data[count].file
     audio.load();
     audio.play();
+    audio.onplay = function(){
+        resetProgress();
+    }
     audio.onended = function () {
         progress();
     }
@@ -49,8 +52,7 @@ const renderTags = function () {
 };
 
 const btnNext = function () {
-    clearInterval(timer);
-    progressbar.style.width = "100%";
+    resetProgress();
     count += 1;
     const countAudio = Object.keys(data).length - 1;
     console.log("count :" + count);
@@ -64,8 +66,8 @@ const btnNext = function () {
 }
 
 const btnBack = function () {
-    clearInterval(timer);
-    progressbar.style.width = "100%";
+    resetProgress();
+
     count -= 1;
     const countAudio = Object.keys(data).length;
     console.log("count :" + count);
@@ -78,7 +80,7 @@ const btnBack = function () {
 }
 
 const btnStop = function () {
-    clearInterval(timer);
+    resetProgress();
 }
 const handleTagClickFunction = function (tag, element) {
     return function () {
@@ -99,13 +101,13 @@ const handleTagClickFunction = function (tag, element) {
 
 btnClose.onclick = function () {
     modal.style.display = "none";
-    clearInterval(timer);
+    resetProgress();
 }
 
 window.onclick = function (event) {
     if (event.target === modal) {
         modal.style.display = "none";
-        clearInterval(timer);
+        resetProgress();
     }
 }
 
@@ -129,4 +131,9 @@ function progress() {
     }, 500);
     console.log("end");
     reverse_counter = 10;
+}
+
+function resetProgress() {
+    clearInterval(timer);
+    progressbar.style.width = "100%";
 }
