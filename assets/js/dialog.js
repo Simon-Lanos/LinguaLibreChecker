@@ -5,7 +5,10 @@ let reverse_counter = 10;
 const progressbar = document.getElementById("pbar");
 
 let count = 0;
-const btnOpen = function () {
+const btnOpen = function (num) {
+    console.log("num btnOpen: " + num);
+    count = num;
+    console.log("count btnOpen: " + count);
     progress();
     modal.style.display = "flex";
     const audio = document.getElementById('audio');
@@ -16,7 +19,6 @@ const btnOpen = function () {
 
     const title = document.getElementById('title');
     title.textContent = data[count].word;
-    renderTags();
 }
 
 const btnOpenAt = function(num) {
@@ -58,9 +60,9 @@ const btnNext = function () {
     console.log("countAudio :" + countAudio);
     if (count > countAudio) {
         count = 0;
-        btnOpen(data)
+        btnOpen(count)
     } else {
-        btnOpen(data)
+        btnOpen(count)
     }
 }
 
