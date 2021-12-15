@@ -75,7 +75,7 @@ const btnBack = function () {
     if (count < 0) {
         count = 0;
     } else {
-        btnOpen(data)
+        btnOpen(count)
     }
 }
 
