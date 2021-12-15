@@ -3,8 +3,8 @@ function CreateTableFromJSON() {
     // EXTRACT VALUE FOR HTML HEADER. 
     const col = [];
     col.push('audio')
-    for (let i = 0; i < myData.length; i++) {
-        for (const key in myData[i]) {
+    for (let i = 0; i < data.length; i++) {
+        for (const key in data[i]) {
             if (col.indexOf(key) === -1) {
                 col.push(key);
             }
@@ -24,7 +24,7 @@ function CreateTableFromJSON() {
     }
 
     // ADD JSON DATA TO THE TABLE AS ROWS.
-    for (let i = 0; i < myData.length; i++) {
+    for (let i = 0; i < data.length; i++) {
         tr = table.insertRow(-1);
 
         for (const j = 0; j < col.length; j++) {
@@ -33,13 +33,13 @@ function CreateTableFromJSON() {
                 tabCell.innerHTML = '<button class="btn btn-primary" id="btnOpen" onclick="btnOpenAt('+ i + ')">Play</button>';
             }
             else if (col[j] === 'duration') {
-                tabCell.innerHTML = myData[i][col[j]] + 's.';
+                tabCell.innerHTML = data[i][col[j]] + 's.';
             }
             else if (col[j] === 'size') {
-                tabCell.innerHTML = myData[i][col[j]] + 'Kio';
+                tabCell.innerHTML = data[i][col[j]] + 'Kio';
             }
             else{
-                tabCell.innerHTML = myData[i][col[j]];
+                tabCell.innerHTML = data[i][col[j]];
             }
         }
     }
