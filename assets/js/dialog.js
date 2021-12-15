@@ -31,6 +31,8 @@ const btnOpenAt = function(num) {
 }
 
 const renderTags = function () {
+    const divTag = document.getElementById('tag');
+    divTag.innerHTML = ''
     tags.forEach((tag) => {
         const btnTag = document.createElement("button")
         btnTag.type = 'button';
@@ -45,8 +47,6 @@ const renderTags = function () {
         btnTag.setAttribute('id', tag.name.replaceAll(' ', '-'))
 
         btnTag.onclick = handleTagClickFunction(tag, data[count])
-        const divTag = document.getElementById('tag');
-        divTag.innerHTML = ''
         divTag.appendChild(btnTag)
     });
 };
