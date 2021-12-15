@@ -1,9 +1,8 @@
 function CreateTableFromJSON() {
-    var myData = data;
 
     // EXTRACT VALUE FOR HTML HEADER. 
     var col = [];
-    col.push("audio")
+    col.push('audio')
     for (var i = 0; i < myData.length; i++) {
         for (var key in myData[i]) {
             if (col.indexOf(key) === -1) {
@@ -13,7 +12,7 @@ function CreateTableFromJSON() {
     }
 
     // CREATE DYNAMIC TABLE.
-    var table = document.createElement("table");
+    var table = document.createElement('table');
     table.setAttribute('class','table table-bordered')
 
     // CREATE HTML TABLE HEADER ROW USING THE EXTRACTED HEADERS ABOVE.
@@ -27,17 +26,17 @@ function CreateTableFromJSON() {
     // ADD JSON DATA TO THE TABLE AS ROWS.
     for (var i = 0; i < myData.length; i++) {
         tr = table.insertRow(-1);
-        
+
         for (var j = 0; j < col.length; j++) {
             var tabCell = tr.insertCell(-1);
-            if (col[j] == "audio") {
+            if (col[j] == 'audio') {
                 tabCell.innerHTML = '<button class="btn btn-primary" id="btnOpen" onclick="btnOpenAt('+ i + ')">Play</button>';
             }
-            else if (col[j] == "duration") {
+            else if (col[j] == 'duration') {
                 tabCell.innerHTML = myData[i][col[j]] + 's.';
             }
-            else if (col[j] == "size") {
-                tabCell.innerHTML = myData[i][col[j]] + 'KO';
+            else if (col[j] == 'size') {
+                tabCell.innerHTML = myData[i][col[j]] + 'Kio';
             }
             else{
                 tabCell.innerHTML = myData[i][col[j]];
@@ -46,8 +45,8 @@ function CreateTableFromJSON() {
     }
 
     // FINALLY ADD THE NEWLY CREATED TABLE WITH JSON DATA TO A CONTAINER.
-    var divContainer = document.getElementById("showData");
-    divContainer.innerHTML = "";
+    var divContainer = document.getElementById('showData');
+    divContainer.innerHTML = '';
     divContainer.appendChild(table);
 }
 CreateTableFromJSON();
