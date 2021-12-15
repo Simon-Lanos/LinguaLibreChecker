@@ -12,8 +12,7 @@
 <header>
     <h1>LinguaLibreChecker</h1>
 </header>
-<main>
-    <button class="btn btn-primary" id="btnOpen" onclick="btnOpen(0)"> Lecture</button>
+<main class="container">
     <div id="modal" class="modal">
         <div class="modal-container">
             <div class="progress" style="height: 4px; border-radius: 0;">
@@ -34,7 +33,7 @@
             </div>
         </div>
     </div>
-    <p id="showData"></p>
+    <div id="showData"></div>
 </main>
 <footer class="d-flex justify-content-center">
     <button class="btn btn-primary" type="button" onclick="download(dataToXml(data))">
