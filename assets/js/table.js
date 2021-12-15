@@ -32,9 +32,9 @@ function CreateTableFromJSON() {
             if (col[j] === 'action') {
                 tabCell.innerHTML = '<button class="btn btn-primary" id="btnOpen" onclick="btnOpen(' + i + ')">Play</button>';
             } else if (col[j] === 'duration') {
-                tabCell.innerHTML = data[i][col[j]] + 's.';
+                tabCell.innerHTML = data[i][col[j]] + ' s';
             } else if (col[j] === 'size') {
-                tabCell.innerHTML = data[i][col[j]] + 'Kio';
+                tabCell.innerHTML = data[i][col[j]] + ' Kio';
             } else {
                 tabCell.innerHTML = data[i][col[j]];
             }
