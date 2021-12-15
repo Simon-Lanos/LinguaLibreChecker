@@ -24,5 +24,7 @@ const translate = function (key, domain = navigator.language) {
         }
     };
 
-    return translations[domain][key];
+    const matchingTranslationDomain = el => (domain.indexOf(el) >= 0);
+
+    return translations[Object.keys(translations).find(matchingTranslationDomain)][key];
 };
