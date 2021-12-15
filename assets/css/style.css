@@ -72,3 +72,8 @@
     background-color: rgba(162, 169, 177, 0.27);
 }
 
+
+@font-face {
+    font-family: Lato;
+    src: url("");
+}
