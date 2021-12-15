@@ -13,7 +13,7 @@ function CreateTableFromJSON() {
 
     // CREATE DYNAMIC TABLE.
     const table = document.createElement('table');
-    table.setAttribute('class','table table-bordered')
+    table.setAttribute('class', 'table table-bordered')
 
     // CREATE HTML TABLE HEADER ROW USING THE EXTRACTED HEADERS ABOVE.
     let tr = table.insertRow(-1);                   // TABLE ROW.
@@ -30,15 +30,12 @@ function CreateTableFromJSON() {
         for (let j = 0; j < col.length; j++) {
             const tabCell = tr.insertCell(-1);
             if (col[j] === 'audio') {
-                tabCell.innerHTML = '<button class="btn btn-primary" id="btnOpen" onclick="btnOpen('+ i + ')">Play</button>';
-            }
-            else if (col[j] === 'duration') {
+                tabCell.innerHTML = '<button class="btn btn-primary" id="btnOpen" onclick="btnOpen(' + i + ')">Play</button>';
+            } else if (col[j] === 'duration') {
                 tabCell.innerHTML = data[i][col[j]] + 's.';
-            }
-            else if (col[j] === 'size') {
+            } else if (col[j] === 'size') {
                 tabCell.innerHTML = data[i][col[j]] + 'Kio';
-            }
-            else{
+            } else {
                 tabCell.innerHTML = data[i][col[j]];
             }
         }
@@ -49,4 +46,5 @@ function CreateTableFromJSON() {
     divContainer.innerHTML = '';
     divContainer.appendChild(table);
 }
+
 CreateTableFromJSON();
