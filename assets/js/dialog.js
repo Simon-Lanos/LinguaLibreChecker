@@ -23,7 +23,10 @@ tags.forEach((tag) => {
 // clearInterval(timer);
 
 let count = 0;
-const btnOpen = function () {
+const btnOpen = function (num) {
+    console.log("num btnOpen: " + num);
+    count = num;
+    console.log("count btnOpen: " + count);
     progress();
     modal.style.display = "flex";
     const audio = document.getElementById('audio');
@@ -36,15 +39,15 @@ const btnOpen = function () {
     title.textContent = data[count].word;
 }
 
-const btnOpenAt = function(num) {
-    modal.style.display = "flex";
-    const audio = document.getElementById('audio');
-    const source = document.getElementById('audioSource');
-    count = num;
-    source.src = data[num].file
-    audio.load();
-    audio.play();
-}
+// const btnOpenAt = function(num) {
+//     modal.style.display = "flex";
+//     const audio = document.getElementById('audio');
+//     const source = document.getElementById('audioSource');
+//     count = num;
+//     source.src = data[num].file
+//     audio.load();
+//     audio.play();
+// }
 
 const btnNext = function () {
     count += 1;
@@ -53,9 +56,9 @@ const btnNext = function () {
     console.log("countAudio :" + countAudio);
     if (count > countAudio) {
         count = 0;
-        btnOpen(data)
+        btnOpen(count)
     } else {
-        btnOpen(data)
+        btnOpen(count)
     }
 }
 
