@@ -27,7 +27,7 @@ function CreateTableFromJSON() {
     for (let i = 0; i < data.length; i++) {
         tr = table.insertRow(-1);
 
-        for (const j = 0; j < col.length; j++) {
+        for (let j = 0; j < col.length; j++) {
             const tabCell = tr.insertCell(-1);
             if (col[j] === 'audio') {
                 tabCell.innerHTML = '<button class="btn btn-primary" id="btnOpen" onclick="btnOpenAt('+ i + ')">Play</button>';
