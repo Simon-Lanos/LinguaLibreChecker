@@ -37,6 +37,7 @@ const btnOpen = function (num) {
 
     const title = document.getElementById('title');
     title.textContent = data[count].word;
+    renderTags()
 }
 
 // const btnOpenAt = function(num) {
