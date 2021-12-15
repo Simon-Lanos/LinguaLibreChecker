@@ -45,8 +45,6 @@
     cursor: pointer;
 }
 
-.btn-light {
-    border-radius: 25px;
-    box-shadow: 0px 4px 4px 0px #00000040;
-    margin: 10px;
+.shadow-custom {
+    box-shadow: 0 4px 4px 0 #00000040;
 }

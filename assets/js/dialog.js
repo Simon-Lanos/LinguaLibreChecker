@@ -4,24 +4,6 @@ let timer;
 let reverse_counter = 10;
 const progressbar = document.getElementById("pbar");
 
-//Tags
-const divTag = document.getElementById('tag');
-divTag.innerHTML = ''
-tags.forEach((tag) => {
-    const btnTag = document.createElement("button")
-    btnTag.type = 'button';
-    btnTag.innerHTML = '#' + tag.name;
-    btnTag.className = 'btn btn-light';
-
-    btnTag.onclick = function () {
-        console.log(tag.name)
-    };
-    const divTag = document.getElementById('tag');
-    divTag.appendChild(btnTag)
-    // console.log(tag.name)
-});
-// clearInterval(timer);
-
 let count = 0;
 const btnOpen = function () {
     progress();
@@ -34,6 +16,7 @@ const btnOpen = function () {
 
     const title = document.getElementById('title');
     title.textContent = data[count].word;
+    renderTags();
 }
 
 const btnOpenAt = function(num) {
@@ -44,7 +27,29 @@ const btnOpenAt = function(num) {
     source.src = data[num].file
     audio.load();
     audio.play();
+    renderTags();
 }
+
+const renderTags = function () {
+    tags.forEach((tag) => {
+        const btnTag = document.createElement("button")
+        btnTag.type = 'button';
+        btnTag.innerHTML = '#' + tag.name;
+        btnTag.className = 'btn rounded-pill shadow-custom m-2';
+
+        if (data[count].tags.includes(tag.name)) {
+            btnTag.classList.add('btn-primary');
+        } else {
+            btnTag.classList.add('btn-light');
+        }
+        btnTag.setAttribute('id', tag.name.replaceAll(' ', '-'))
+
+        btnTag.onclick = handleTagClickFunction(tag, data[count])
+        const divTag = document.getElementById('tag');
+        divTag.innerHTML = ''
+        divTag.appendChild(btnTag)
+    });
+};
 
 const btnNext = function () {
     count += 1;
@@ -70,6 +75,23 @@ const btnBack = function () {
         btnOpen(data)
     }
 }
+
+const handleTagClickFunction = function (tag, element) {
+    return function () {
+        const btnTag = document.getElementById(tag.name.replaceAll(' ', '-'));
+        if (element.tags.includes(tag.name)) {
+            btnTag.classList.remove('btn-primary');
+            btnTag.classList.add('btn-light');
+            element.tags.splice(element.tags.indexOf(tag.name));
+            return;
+        }
+        btnTag.classList.remove('btn-light');
+        btnTag.classList.add('btn-primary');
+
+        element.tags.push(tag.name);
+        CreateTableFromJSON();
+    };
+};
 
 btnClose.onclick = function () {
     modal.style.display = "none";
