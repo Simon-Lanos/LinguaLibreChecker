@@ -21,12 +21,9 @@ const btnOpen = function () {
         btnTag.innerHTML = '#' + tag.name;
         btnTag.className = 'btn btn-light';
 
-        btnTag.onclick = function () {
-            console.log(tag.name)
-        };
+        btnTag.onclick = handleTagClickFunction(tag, data[count])
         const divTag = document.getElementById('tag');
         divTag.appendChild(btnTag)
-        // console.log(tag.name)
     });
 }
 
@@ -54,6 +51,16 @@ const btnBack = function () {
         btnOpen(data)
     }
 }
+
+const handleTagClickFunction = function (tag, element) {
+    return function () {
+        if (element.tags.includes(tag.name)) {
+            return;
+        }
+        element.tags.push(tag.name);
+        CreateTableFromJSON();
+    };
+};
 
 btnClose.onclick = function () {
     modal.style.display = "none";
