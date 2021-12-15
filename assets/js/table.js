@@ -1,10 +1,10 @@
 function CreateTableFromJSON() {
 
     // EXTRACT VALUE FOR HTML HEADER. 
-    var col = [];
+    const col = [];
     col.push('audio')
-    for (var i = 0; i < myData.length; i++) {
-        for (var key in myData[i]) {
+    for (let i = 0; i < myData.length; i++) {
+        for (const key in myData[i]) {
             if (col.indexOf(key) === -1) {
                 col.push(key);
             }
@@ -12,23 +12,23 @@ function CreateTableFromJSON() {
     }
 
     // CREATE DYNAMIC TABLE.
-    var table = document.createElement('table');
+    const table = document.createElement('table');
     table.setAttribute('class','table table-bordered')
 
     // CREATE HTML TABLE HEADER ROW USING THE EXTRACTED HEADERS ABOVE.
-    var tr = table.insertRow(-1);                   // TABLE ROW.
-    for (var i = 0; i < col.length; i++) {
-        var th = document.createElement("th");      // TABLE HEADER.
+    let tr = table.insertRow(-1);                   // TABLE ROW.
+    for (let i = 0; i < col.length; i++) {
+        const th = document.createElement("th");      // TABLE HEADER.
         th.innerHTML = col[i];
         tr.appendChild(th);
     }
 
     // ADD JSON DATA TO THE TABLE AS ROWS.
-    for (var i = 0; i < myData.length; i++) {
+    for (let i = 0; i < myData.length; i++) {
         tr = table.insertRow(-1);
 
-        for (var j = 0; j < col.length; j++) {
-            var tabCell = tr.insertCell(-1);
+        for (const j = 0; j < col.length; j++) {
+            const tabCell = tr.insertCell(-1);
             if (col[j] === 'audio') {
                 tabCell.innerHTML = '<button class="btn btn-primary" id="btnOpen" onclick="btnOpenAt('+ i + ')">Play</button>';
             }
@@ -45,7 +45,7 @@ function CreateTableFromJSON() {
     }
 
     // FINALLY ADD THE NEWLY CREATED TABLE WITH JSON DATA TO A CONTAINER.
-    var divContainer = document.getElementById('showData');
+    const divContainer = document.getElementById('showData');
     divContainer.innerHTML = '';
     divContainer.appendChild(table);
 }
