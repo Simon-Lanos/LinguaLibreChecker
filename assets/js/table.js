@@ -2,7 +2,7 @@ function CreateTableFromJSON() {
 
     // EXTRACT VALUE FOR HTML HEADER. 
     const col = [];
-    col.push('audio')
+    col.push('action')
     for (let i = 0; i < data.length; i++) {
         for (const key in data[i]) {
             if (col.indexOf(key) === -1) {
@@ -19,7 +19,7 @@ function CreateTableFromJSON() {
     let tr = table.insertRow(-1);                   // TABLE ROW.
     for (let i = 0; i < col.length; i++) {
         const th = document.createElement("th");      // TABLE HEADER.
-        th.innerHTML = col[i];
+        th.innerHTML = translate(col[i]);
         tr.appendChild(th);
     }
 
@@ -29,7 +29,7 @@ function CreateTableFromJSON() {
 
         for (let j = 0; j < col.length; j++) {
             const tabCell = tr.insertCell(-1);
-            if (col[j] === 'audio') {
+            if (col[j] === 'action') {
                 tabCell.innerHTML = '<button class="btn btn-primary" id="btnOpen" onclick="btnOpen(' + i + ')">Play</button>';
             } else if (col[j] === 'duration') {
                 tabCell.innerHTML = data[i][col[j]] + 's.';
