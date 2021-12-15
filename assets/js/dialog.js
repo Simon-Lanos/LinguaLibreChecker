@@ -19,7 +19,14 @@ const btnOpen = function () {
         const btnTag = document.createElement("button")
         btnTag.type = 'button';
         btnTag.innerHTML = '#' + tag.name;
-        btnTag.className = 'btn btn-light';
+        btnTag.className = 'btn rounded-pill shadow-custom m-2';
+
+        if (data[count].tags.includes(tag.name)) {
+            btnTag.classList.add('btn-primary');
+        } else {
+            btnTag.classList.add('btn-light');
+        }
+        btnTag.setAttribute('id', tag.name.replaceAll(' ', '-'))
 
         btnTag.onclick = handleTagClickFunction(tag, data[count])
         const divTag = document.getElementById('tag');
@@ -54,9 +61,16 @@ const btnBack = function () {
 
 const handleTagClickFunction = function (tag, element) {
     return function () {
+        const btnTag = document.getElementById(tag.name.replaceAll(' ', '-'));
         if (element.tags.includes(tag.name)) {
+            btnTag.classList.remove('btn-primary');
+            btnTag.classList.add('btn-light');
+            element.tags.splice(element.tags.indexOf(tag.name));
             return;
         }
+        btnTag.classList.remove('btn-light');
+        btnTag.classList.add('btn-primary');
+
         element.tags.push(tag.name);
         CreateTableFromJSON();
     };
