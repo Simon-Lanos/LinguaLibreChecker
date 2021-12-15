@@ -1,7 +1,30 @@
 const modal = document.getElementById("modal");
 const btnClose = document.getElementsByClassName("close")[0];
+let timer;
+let reverse_counter = 10;
+const progressbar = document.getElementById("pbar");
+
+//Tags
+const divTag = document.getElementById('tag');
+divTag.innerHTML = ''
+tags.forEach((tag) => {
+    const btnTag = document.createElement("button")
+    btnTag.type = 'button';
+    btnTag.innerHTML = '#' + tag.name;
+    btnTag.className = 'btn btn-light';
+
+    btnTag.onclick = function () {
+        console.log(tag.name)
+    };
+    const divTag = document.getElementById('tag');
+    divTag.appendChild(btnTag)
+    // console.log(tag.name)
+});
+// clearInterval(timer);
+
 let count = 0;
 const btnOpen = function () {
+    progress();
     modal.style.display = "flex";
     const audio = document.getElementById('audio');
     const source = document.getElementById('audioSource');
@@ -11,23 +34,6 @@ const btnOpen = function () {
 
     const title = document.getElementById('title');
     title.textContent = data[count].word;
-
-    const divTag = document.getElementById('tag');
-    divTag.innerHTML = ''
-
-    tags.forEach((tag) => {
-        const btnTag = document.createElement("button")
-        btnTag.type = 'button';
-        btnTag.innerHTML = '#' + tag.name;
-        btnTag.className = 'btn btn-light';
-
-        btnTag.onclick = function () {
-            console.log(tag.name)
-        };
-        const divTag = document.getElementById('tag');
-        divTag.appendChild(btnTag)
-        // console.log(tag.name)
-    });
 }
 
 const btnNext = function () {
@@ -57,10 +63,36 @@ const btnBack = function () {
 
 btnClose.onclick = function () {
     modal.style.display = "none";
+    clearInterval(timer);
+
 }
 
 window.onclick = function (event) {
     if (event.target === modal) {
         modal.style.display = "none";
+        clearInterval(timer);
     }
+}
+
+
+//progress bar
+function progress() {
+    clearInterval(timer);
+    timer = setInterval(function () {
+
+        progressbar.value = --reverse_counter;
+
+        progressbar.style.width = reverse_counter * 10 + "%";
+        if (reverse_counter <= 0) {
+            clearInterval(timer);
+            btnNext()
+        }
+
+        console.log(reverse_counter);
+        // document.getElementById("counter").innerHTML = reverse_counter;
+
+    }, 500);
+    console.log("end");
+    reverse_counter = 10;
+    progressbar.style.width = reverse_counter * 10 + "%";
 }
