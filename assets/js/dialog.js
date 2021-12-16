@@ -8,21 +8,11 @@ let inputModify = localStorage.getItem('timerDuration') ?? 5;
 
 let count = 0;
 const btnOpen = function (num) {
-    console.log("num btnOpen: " + num);
     count = num;
-    console.log("count btnOpen: " + count);
-    modal.style.display = "flex";
-    const audio = document.getElementById('audio');
-    const source = document.getElementById('audioSource');
+    modal.classList.add('d-flex');
+    const source = document.getElementById('audio-source');
     source.src = data[count].file
-    audio.load();
-    audio.play();
-    audio.onplay = function(){
-        resetProgress();
-    }
-    audio.onended = function () {
-        progress();
-    }
+    initAudioPlayer();
     // audio.addEventListener('timeupdate', (event) => {
     //     const currentTime = Math.floor(audio.currentTime);
     //     const duration = Math.floor(audio.duration);
@@ -102,13 +92,13 @@ const handleTagClickFunction = function (tag, element) {
 };
 
 btnClose.onclick = function () {
-    modal.style.display = "none";
+    modal.classList.remove('d-flex');
     resetProgress();
 }
 
 window.onclick = function (event) {
     if (event.target === modal) {
-        modal.style.display = "none";
+        modal.classList.remove('d-flex');
         resetProgress();
     }
 }
@@ -122,6 +112,7 @@ function progress() {
         progressbar.value = --reverse_counter;
 
         progressbar.style.width = reverse_counter * 10 + "%";
+        console.log(reverse_counter);
         if (reverse_counter <= 0) {
             clearInterval(timer);
             btnNext()
@@ -144,3 +135,5 @@ btnModify.onclick = function () {
     localStorage.setItem('timerDuration',inputModify);
     console.log(localStorage);
 }
+audioPlaySubscriber.subscribe('reset', resetProgress);
+audioEndedSubscriber.subscribe('progress', progress);
