@@ -9,28 +9,25 @@ const btnOpen = function (num) {
     console.log("num btnOpen: " + num);
     count = num;
     console.log("count btnOpen: " + count);
-    progress();
     modal.style.display = "flex";
     const audio = document.getElementById('audio');
     const source = document.getElementById('audioSource');
     source.src = data[count].file
     audio.load();
     audio.play();
-
+    audio.onplay = function(){
+        resetProgress();
+    }
+    audio.onended = function () {
+        progress();
+    }
+    // audio.addEventListener('timeupdate', (event) => {
+    //     const currentTime = Math.floor(audio.currentTime);
+    //     const duration = Math.floor(audio.duration);
+    // }, false);
     const title = document.getElementById('title');
     title.textContent = data[count].word;
     renderTags()
-}
-
-const btnOpenAt = function(num) {
-    modal.style.display = "flex";
-    const audio = document.getElementById('audio');
-    const source = document.getElementById('audioSource');
-    count = num;
-    source.src = data[num].file
-    audio.load();
-    audio.play();
-    renderTags();
 }
 
 const renderTags = function () {
@@ -55,6 +52,7 @@ const renderTags = function () {
 };
 
 const btnNext = function () {
+    resetProgress();
     count += 1;
     const countAudio = Object.keys(data).length - 1;
     console.log("count :" + count);
@@ -68,6 +66,8 @@ const btnNext = function () {
 }
 
 const btnBack = function () {
+    resetProgress();
+
     count -= 1;
     const countAudio = Object.keys(data).length;
     console.log("count :" + count);
@@ -79,6 +79,9 @@ const btnBack = function () {
     }
 }
 
+const btnStop = function () {
+    resetProgress();
+}
 const handleTagClickFunction = function (tag, element) {
     return function () {
         const btnTag = document.getElementById(tag.name.replaceAll(' ', '-'));
@@ -98,14 +101,13 @@ const handleTagClickFunction = function (tag, element) {
 
 btnClose.onclick = function () {
     modal.style.display = "none";
-    clearInterval(timer);
-
+    resetProgress();
 }
 
 window.onclick = function (event) {
     if (event.target === modal) {
         modal.style.display = "none";
-        clearInterval(timer);
+        resetProgress();
     }
 }
 
@@ -123,11 +125,15 @@ function progress() {
             btnNext()
         }
 
-        console.log(reverse_counter);
+        // console.log(reverse_counter);
         // document.getElementById("counter").innerHTML = reverse_counter;
 
     }, 500);
     console.log("end");
     reverse_counter = 10;
-    progressbar.style.width = reverse_counter * 10 + "%";
+}
+
+function resetProgress() {
+    clearInterval(timer);
+    progressbar.style.width = "100%";
 }

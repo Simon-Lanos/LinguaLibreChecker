@@ -16,21 +16,24 @@
 <main class="container">
     <div id="modal" class="modal">
         <div class="modal-container">
-            <div class="progress" style="height: 4px; border-radius: 0;">
-                <div id="pbar" class="progress-bar" role="progressbar" style="width: 100%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="10"></div>
+            <div class="progress" style="height: 4px;">
+                <div id="pbar" class="progress-bar" role="progressbar" style="width: 100%" aria-valuenow="10"
+                     aria-valuemin="0" aria-valuemax="10"></div>
             </div>
-<!--            <p id="counter">9</p>-->
             <span class="close">&times;</span>
-            <h2 id="title">MOT</h2>
-
+            <div class="head-container">
+                <h2 id="title">MOT</h2>
+            </div>
+            <div id="tag"></div>
             <audio id="audio" controls>
                 <source id="audioSource" src="./assets/audio/LL-Q150_(fra)-Adélaïde_Calais_WMFr-jeune.wav"
                         type="audio/wav">
             </audio>
-            <div id="tag"></div>
-            <div>
-                <button class="btn btn-secondary" onclick="btnBack()">Retour</button>
-<!--                <button class="btn btn-success" onclick="btnNext()">Valid Next</button>-->
+            <div class="control-player">
+                <a class="btn btn-link" onclick="btnBack()"> < Retour</a>
+                <a class="btn btn-link" onclick="btnStop()">&#9616;&nbsp;&#9612;</a>
+                <a class="btn btn-link" onclick="btnNext()">Suivant ></a>
+
             </div>
         </div>
     </div>
