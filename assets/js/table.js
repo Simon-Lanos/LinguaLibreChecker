@@ -5,7 +5,7 @@ function CreateTableFromJSON() {
     col.push('action')
     for (let i = 0; i < data.length; i++) {
         for (const key in data[i]) {
-            if (col.indexOf(key) === -1) {
+            if (col.indexOf(key) === -1 && key !== 'isRead') {
                 col.push(key);
             }
         }
@@ -18,6 +18,7 @@ function CreateTableFromJSON() {
     // CREATE HTML TABLE HEADER ROW USING THE EXTRACTED HEADERS ABOVE.
     let tr = table.insertRow(-1);                   // TABLE ROW.
     for (let i = 0; i < col.length; i++) {
+        
         const th = document.createElement("th");      // TABLE HEADER.
         th.innerHTML = translate(col[i]);
         tr.appendChild(th);
