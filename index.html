@@ -30,10 +30,16 @@
                 <h2 id="title">MOT</h2>
             </div>
             <div id="tag"></div>
-            <audio id="audio" controls>
-                <source id="audioSource" src="./assets/audio/LL-Q150_(fra)-Adélaïde_Calais_WMFr-jeune.wav"
-                        type="audio/wav">
-            </audio>
+            <div id="audio-container" class="d-flex justify-content-center">
+                <audio id="audio" preload="metadata">
+                    <source id="audio-source" src="./assets/audio/LL-Q150_(fra)-Adélaïde_Calais_WMFr-jeune.wav"
+                            type="audio/wav">
+                </audio>
+                <button id="audio-player" class="btn fs-3 text-success" type="button" data-playing>&#9655;</button>
+                <span id="audio-time" class="align-self-center">0:00</span>
+                <span id="audio-time-separator" class="align-self-center">&nbsp;/&nbsp;</span>
+                <span id="audio-duration" class="align-self-center">0:00</span>
+            </div>
             <div class="control-player">
                 <a class="btn btn-link" onclick="btnBack()"> < Retour</a>
                 <a class="btn btn-link" onclick="btnStop()">&#9616;&nbsp;&#9612;</a>
@@ -52,6 +58,8 @@
 <script type="text/javascript" src="./assets/js/bootstrap.bundle.min.js"></script>
 <script type="text/javascript" src="./assets/js/data.js"></script>
 <script type="text/javascript" src="./assets/js/translator.js"></script>
+<script type="text/javascript" src="./assets/js/subscriber.js"></script>
+<script type="text/javascript" src="./assets/js/player.js"></script>
 <script type="text/javascript" src="assets/js/table.js"></script>
 <script type="text/javascript" src="./assets/js/dialog.js"></script>
 <script type="text/javascript" src="./assets/js/table.js"></script>
