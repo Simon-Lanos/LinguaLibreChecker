@@ -1,7 +1,7 @@
 const modal = document.getElementById("modal");
 const btnClose = document.getElementsByClassName("close")[0];
 let timer;
-let reverse_counter = 5;
+let reverse_counter = 10;
 const progressbar = document.getElementById("pbar");
 
 let count = 0;
@@ -121,7 +121,7 @@ function progress() {
 
     }, 1000);
     console.log("end");
-    reverse_counter = 5;
+    reverse_counter = 10;
 }
 
 function resetProgress() {
