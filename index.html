@@ -51,7 +51,7 @@
     <div id="showData"></div>
 </main>
 <footer class="d-flex justify-content-center">
-    <button class="btn btn-primary" type="button" onclick="download(dataToXml(data))">
+    <button class="btn btn-primary" type="button" onclick="download(dataToXml(data.filter(filterReadedAudio)))">
         <span>📝</span>Exporter
     </button>
 </footer>

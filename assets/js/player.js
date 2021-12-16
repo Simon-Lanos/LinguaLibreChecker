@@ -2,6 +2,7 @@ const audioPlayer = document.getElementById('audio-player');
 const audio = document.getElementById('audio');
 const audioDuration = document.getElementById('audio-duration');
 const audioTime = document.getElementById('audio-time');
+const audioSource = document.getElementById('audio-source');
 
 const initAudioPlayer = function () {
     audio.load();
@@ -45,6 +46,9 @@ const computeTime = function (secs) {
     const returnedSeconds = seconds < 10 ? `0${seconds}` : `${seconds}`;
     return `${minutes}:${returnedSeconds}`;
 }
+const filterReadedAudio = function (el) {
+    return el.isRead ?? false ;
+}
 
 audioPlayer.onclick = function () {
     if (this.hasAttribute('data-playing')) {
@@ -60,6 +64,11 @@ const audioEndedSubscriber = new Subscriber();
 
 audioEndedSubscriber.subscribe('state', function () {
     changePlayerState('paused')
+    // check la data
+    
+    data[data.findIndex(el => el.file === audioSource.attributes.src.value)].isRead = true;
+    
+
 });
 
 audio.onplay = audioPlaySubscriber.handle;
