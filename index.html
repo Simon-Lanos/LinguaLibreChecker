@@ -18,7 +18,12 @@
     </nav>
 </header>
 <main class="container">
-    <h1>Lingua Libre Checker</h1>
+    <div class="header-table">
+        <h1>Lingua Libre Checker</h1>
+        <button class="btn btn-primary" type="button" onclick="download(dataToXml(data))">
+            <span>📝</span>Exporter
+        </button>
+    </div>
     <div id="modal" class="modal">
         <div class="modal-container">
             <div class="progress" style="height: 4px;">
@@ -50,7 +55,7 @@
     </div>
     <div id="showData"></div>
 </main>
-<footer class="d-flex justify-content-center">
+<footer class="d-flex justify-content-center container">
     <button class="btn btn-primary" type="button" onclick="download(dataToXml(data))">
         <span>📝</span>Exporter
     </button>

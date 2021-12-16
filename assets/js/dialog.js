@@ -1,7 +1,7 @@
 const modal = document.getElementById("modal");
 const btnClose = document.getElementsByClassName("close")[0];
 let timer;
-let reverse_counter = 10;
+let reverse_counter = 5;
 const progressbar = document.getElementById("pbar");
 
 let count = 0;
@@ -110,6 +110,7 @@ function progress() {
         progressbar.value = --reverse_counter;
 
         progressbar.style.width = reverse_counter * 10 + "%";
+        console.log(reverse_counter);
         if (reverse_counter <= 0) {
             clearInterval(timer);
             btnNext()
@@ -118,9 +119,9 @@ function progress() {
         // console.log(reverse_counter);
         // document.getElementById("counter").innerHTML = reverse_counter;
 
-    }, 500);
+    }, 1000);
     console.log("end");
-    reverse_counter = 10;
+    reverse_counter = 5;
 }
 
 function resetProgress() {
