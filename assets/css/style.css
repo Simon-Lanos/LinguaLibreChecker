@@ -126,10 +126,21 @@ table tr {
 table th {
     border-top: none;
 }
-.table tr th{
+
+.table tr th {
     padding: 20px 10px;
 }
 
+.header-table {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+footer button {
+    margin-bottom: 30px;
+    width: 100%;
+}
 
 /* nav */
 nav img {

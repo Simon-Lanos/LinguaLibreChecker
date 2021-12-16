@@ -1,7 +1,7 @@
 const modal = document.getElementById("modal");
 const btnClose = document.getElementsByClassName("close")[0];
 let timer;
-let reverse_counter = 10;
+let reverse_counter = 5;
 const progressbar = document.getElementById("pbar");
 
 let count = 0;
@@ -70,14 +70,6 @@ const btnBack = function () {
 }
 
 const btnStop = function () {
-    // if (playStatus) {
-    //     audio.play();
-    //     btnPause.textContent = "pause"
-    // } else {
-    //     audio.pause();
-    //     btnPause.textContent = "play"
-    // }
-    // playStatus = !playStatus;
     resetProgress();
 }
 const handleTagClickFunction = function (tag, element) {
@@ -118,6 +110,7 @@ function progress() {
         progressbar.value = --reverse_counter;
 
         progressbar.style.width = reverse_counter * 10 + "%";
+        console.log(reverse_counter);
         if (reverse_counter <= 0) {
             clearInterval(timer);
             btnNext()
@@ -126,9 +119,9 @@ function progress() {
         // console.log(reverse_counter);
         // document.getElementById("counter").innerHTML = reverse_counter;
 
-    }, 500);
+    }, 1000);
     console.log("end");
-    reverse_counter = 10;
+    reverse_counter = 5;
 }
 
 function resetProgress() {
