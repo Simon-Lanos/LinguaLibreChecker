@@ -3,19 +3,21 @@ const btnClose = document.getElementsByClassName("close")[0];
 let timer;
 let reverse_counter = 10;
 const progressbar = document.getElementById("pbar");
-
+const audio = document.getElementById('audio');
+const btnPause = document.getElementById('btn-stop');
+let playStatus = false;
 let count = 0;
+
 const btnOpen = function (num) {
-    console.log("num btnOpen: " + num);
+    // console.log("num btnOpen: " + num);
     count = num;
-    console.log("count btnOpen: " + count);
+    // console.log("count btnOpen: " + count);
     modal.style.display = "flex";
-    const audio = document.getElementById('audio');
     const source = document.getElementById('audioSource');
     source.src = data[count].file
     audio.load();
     audio.play();
-    audio.onplay = function(){
+    audio.onplay = function () {
         resetProgress();
     }
     audio.onended = function () {
@@ -80,6 +82,14 @@ const btnBack = function () {
 }
 
 const btnStop = function () {
+    // if (playStatus) {
+    //     audio.play();
+    //     btnPause.textContent = "pause"
+    // } else {
+    //     audio.pause();
+    //     btnPause.textContent = "play"
+    // }
+    // playStatus = !playStatus;
     resetProgress();
 }
 const handleTagClickFunction = function (tag, element) {
@@ -102,12 +112,14 @@ const handleTagClickFunction = function (tag, element) {
 btnClose.onclick = function () {
     modal.style.display = "none";
     resetProgress();
+    audio.pause();
 }
 
 window.onclick = function (event) {
     if (event.target === modal) {
         modal.style.display = "none";
         resetProgress();
+        audio.pause();
     }
 }
 

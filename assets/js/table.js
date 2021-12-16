@@ -30,7 +30,7 @@ function CreateTableFromJSON() {
         for (let j = 0; j < col.length; j++) {
             const tabCell = tr.insertCell(-1);
             if (col[j] === 'action') {
-                tabCell.innerHTML = '<button class="btn btn-primary" id="btnOpen" onclick="btnOpen(' + i + ')"><img src="assets/svg/play-fill.svg" alt="play" /></button>';
+                tabCell.innerHTML = '<button class="btn" id="btnOpen" onclick="btnOpen(' + i + ')"><img src="assets/svg/play-fill.svg" alt="play" /></button>';
             } else if (col[j] === 'duration') {
                 tabCell.innerHTML = data[i][col[j]] + ' s';
             } else if (col[j] === 'size') {
