@@ -43,7 +43,6 @@ const computeTime = function (secs) {
     const seconds = Math.round(secs % 60);
     // add 0 before the seconds if single digit
     const returnedSeconds = seconds < 10 ? `0${seconds}` : `${seconds}`;
-    console.log(minutes, seconds, returnedSeconds);
     return `${minutes}:${returnedSeconds}`;
 }
 
