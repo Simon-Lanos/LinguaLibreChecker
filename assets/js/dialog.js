@@ -4,10 +4,7 @@ const btnModify = document.getElementById("modify");
 let timer;
 let reverse_counter = 10;
 const progressbar = document.getElementById("pbar");
-
-let locStorage = localStorage;
-locStorage.setItem('timerDuration',reverse_counter);
-reverse_counter = localStorage.getItem('timerDuration');
+let inputModify = localStorage.getItem('timerDuration') ?? 5;
 
 let count = 0;
 const btnOpen = function (num) {
@@ -132,9 +129,9 @@ function progress() {
         console.log(reverse_counter);
         // document.getElementById("counter").innerHTML = reverse_counter;
         
-    }, 1000);
+    }, inputModify*100);
     console.log("end");
-    reverse_counter = locStorage.getItem('timerDuration');
+    reverse_counter = 10
 }
 
 function resetProgress() {
@@ -143,7 +140,7 @@ function resetProgress() {
 }
 
 btnModify.onclick = function () {
-    reverse_counter = document.getElementById("timerDuration").value;
-    locStorage.setItem('timerDuration',reverse_counter);
+    inputModify = document.getElementById("timerDuration").value;
+    localStorage.setItem('timerDuration',inputModify);
     console.log(localStorage);
 }
