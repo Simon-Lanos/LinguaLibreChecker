@@ -12,7 +12,7 @@
 <body>
 <header>
     <nav class="navbar navbar-light shadow-sm p-3 mb-5 bg-body rounded">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="index.html">
             <img src="assets/img/lingualibre-logo.png" alt="Lingua Libre">
         </a>
     </nav>
@@ -29,6 +29,20 @@
             <div class="progress" style="height: 4px;">
                 <div id="pbar" class="progress-bar" role="progressbar" style="width: 100%" aria-valuenow="10"
                      aria-valuemin="0" aria-valuemax="10"></div>
+            </div>
+
+            
+            <div class="dropdown">
+            <button class="btn" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
+                <img src="assets/svg/three-dots-vertical.svg" alt="settings">
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                <form action="" class="px-4 py-3">
+                    <label for="timer" class="form-label">Durée Timer</label>
+                    <input type="number" class="form-control" id="timerDuration" placeholder="Timer">
+                    <button type="button" class="btn btn-primary" id="modify">Modifier</button>
+                </form>
+            </ul>
             </div>
             <span class="close">&times;</span>
             <div class="head-container">

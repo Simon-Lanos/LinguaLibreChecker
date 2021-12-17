@@ -1,8 +1,10 @@
 const modal = document.getElementById("modal");
 const btnClose = document.getElementsByClassName("close")[0];
+const btnModify = document.getElementById("modify");
 let timer;
 let reverse_counter = 10;
 const progressbar = document.getElementById("pbar");
+let inputModify = localStorage.getItem('timerDuration') ?? 5;
 
 let count = 0;
 const btnOpen = function (num) {
@@ -11,10 +13,6 @@ const btnOpen = function (num) {
     const source = document.getElementById('audio-source');
     source.src = data[count].file
     initAudioPlayer();
-    // audio.addEventListener('timeupdate', (event) => {
-    //     const currentTime = Math.floor(audio.currentTime);
-    //     const duration = Math.floor(audio.duration);
-    // }, false);
     const title = document.getElementById('title');
     title.textContent = data[count].word;
     renderTags()
@@ -45,8 +43,6 @@ const btnNext = function () {
     resetProgress();
     count += 1;
     const countAudio = Object.keys(data).length - 1;
-    console.log("count :" + count);
-    console.log("countAudio :" + countAudio);
     if (count > countAudio) {
         count = 0;
         btnOpen(count)
@@ -59,9 +55,6 @@ const btnBack = function () {
     resetProgress();
 
     count -= 1;
-    const countAudio = Object.keys(data).length;
-    console.log("count :" + count);
-    console.log("countAudio :" + countAudio);
     if (count < 0) {
         count = 0;
     } else {
@@ -110,18 +103,14 @@ function progress() {
         progressbar.value = --reverse_counter;
 
         progressbar.style.width = reverse_counter * 10 + "%";
-        console.log(reverse_counter);
         if (reverse_counter <= 0) {
             clearInterval(timer);
             btnNext()
         }
-
-        // console.log(reverse_counter);
         // document.getElementById("counter").innerHTML = reverse_counter;
-
-    }, 1000);
-    console.log("end");
-    reverse_counter = 10;
+        
+    }, inputModify*100);
+    reverse_counter = 10
 }
 
 function resetProgress() {
@@ -129,5 +118,9 @@ function resetProgress() {
     progressbar.style.width = "100%";
 }
 
+btnModify.onclick = function () {
+    inputModify = document.getElementById("timerDuration").value;
+    localStorage.setItem('timerDuration',inputModify);
+}
 audioPlaySubscriber.subscribe('reset', resetProgress);
 audioEndedSubscriber.subscribe('progress', progress);

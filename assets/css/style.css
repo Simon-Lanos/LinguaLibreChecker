@@ -33,6 +33,11 @@
     text-align: center;
 }
 
+.dropdown button img {
+  display: inline;
+  width: 30px;
+}
+
 .close {
     position: absolute;
     font-size: 50px;
