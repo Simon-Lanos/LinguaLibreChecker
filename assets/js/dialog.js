@@ -9,8 +9,27 @@ let inputModify = localStorage.getItem('timerDuration') ?? 5;
 let count = 0;
 const btnOpen = function (num) {
     count = num;
-    document.getElementById("tr" + num).style.color = "#fff";
-    document.getElementById("tr" + num).style.background = "rgba(89, 155, 255, 1)";
+    const countAudio = Object.keys(data).length - 1;
+
+    // pour surligner toutes les lignes déjà lu :
+    // const trRow = document.getElementById("tr" + num);
+    // trRow.style.color = "#fff";
+    // trRow.style.background = "rgba(89, 155, 255, 1)";
+
+    // Pour surligner seulement la dernière ligne lu :
+    for (let i = 0; i < countAudio; i++) {
+        if (i === num) {
+            const trRow = document.getElementById("tr" + num);
+            trRow.style.color = "#fff";
+            trRow.style.background = "rgba(89, 155, 255, 1)";
+        } else {
+            console.log("this two : " + i + " == " + num)
+            const trRowOther = document.getElementById("tr" + i);
+            trRowOther.style.color = "#000000";
+            trRowOther.style.background = "#fff";
+        }
+    }
+
     modal.classList.add('d-flex');
     const source = document.getElementById('audio-source');
     source.src = data[count].file
