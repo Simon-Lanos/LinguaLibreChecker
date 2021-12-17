@@ -99,7 +99,8 @@
 }
 
 .table tr:hover {
-    background-color: rgba(239, 239, 239, 0.28);
+    background-color: rgba(239, 239, 239, 0.40);
+
 }
 
 .table button {

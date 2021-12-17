@@ -9,6 +9,8 @@ let inputModify = localStorage.getItem('timerDuration') ?? 5;
 let count = 0;
 const btnOpen = function (num) {
     count = num;
+    document.getElementById("tr" + num).style.color = "#fff";
+    document.getElementById("tr" + num).style.background = "rgba(89, 155, 255, 1)";
     modal.classList.add('d-flex');
     const source = document.getElementById('audio-source');
     source.src = data[count].file
@@ -84,12 +86,14 @@ const handleTagClickFunction = function (tag, element) {
 
 btnClose.onclick = function () {
     modal.classList.remove('d-flex');
+    audio.pause()
     resetProgress();
 }
 
 window.onclick = function (event) {
     if (event.target === modal) {
         modal.classList.remove('d-flex');
+        audio.pause()
         resetProgress();
     }
 }
@@ -108,8 +112,8 @@ function progress() {
             btnNext()
         }
         // document.getElementById("counter").innerHTML = reverse_counter;
-        
-    }, inputModify*100);
+
+    }, inputModify * 100);
     reverse_counter = 10
 }
 
@@ -120,7 +124,7 @@ function resetProgress() {
 
 btnModify.onclick = function () {
     inputModify = document.getElementById("timerDuration").value;
-    localStorage.setItem('timerDuration',inputModify);
+    localStorage.setItem('timerDuration', inputModify);
 }
 audioPlaySubscriber.subscribe('reset', resetProgress);
 audioEndedSubscriber.subscribe('progress', progress);
